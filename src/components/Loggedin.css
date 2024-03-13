@@ -1,0 +1,78 @@
+.navbarlog {
+    /* Blue color, you can change it */
+    color:black; /* Text color */
+    padding: 20px;
+  }
+  
+  .containerlog {
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+  
+  .mainlog {
+    margin-top: 65px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+  h3{
+    margin-top: 27px;
+  }
+  
+  table {
+    width: 950px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-left: 2px;
+    font-size: 14px;
+    
+
+  }
+  
+  table th, table td {
+    border: 1px solid black;
+    
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  /* Style approval and delete buttons */
+  .approval-btn,
+  .delete-btn {
+    background-color: #28a745; /* Green color, you can change it */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545; /* Red color, you can change it */
+  }
+  
+  .approval-btn:hover,
+  .delete-btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Positioning LifeCare+ at top left corner */
+  .containerlog p {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold;
+  }
+  

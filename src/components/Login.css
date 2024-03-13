@@ -1,0 +1,94 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Choose a suitable font family */
+  }
+  
+  .nav {
+  
+        display: flex; /* Allow horizontal layout for navigation elements */
+        align-items: center; /* Vertically align elements within the nav */
+       
+        padding: 1rem;
+      
+  }
+  
+  /* Container styles */
+  .contain {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    width: 100%; /* Stretch container to fill available space */
+    max-width: 900px; /* Set a maximum width for responsiveness */
+    margin: 1rem auto; /* Center the container horizontally */
+    margin-top: 15px; 
+}
+/* Title styles */
+
+  /* Heading styles */
+  .heading {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  h1 {
+    font-size: 2rem; /* Adjust heading size based on preference */
+    margin-bottom: 2rem;
+  }
+  
+  h3,
+  h4 {
+    color:black; /* Subdued color for secondary headings */
+   
+  }
+  
+ /* Submit.css */
+
+/* Style for the Update Profile link */
+.update-profile-link {
+    position: absolute;
+    top: 10px; /* Adjust this value to set the desired distance from the top */
+    right: 10px; /* Adjust this value to set the desired distance from the right */
+    color: black; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+    font-size: 14px; /* Adjust font size as needed */
+  }
+  
+  
+  .update-profile-link:hover {
+    background-color: #462d3e; /* Subtle hover effect for link */
+  }
+  
+  /* Table styles */
+  table {
+    border-collapse: collapse; /* Ensure table cells have borders */
+    width: 100%; /* Stretch tables to fill available space */
+    margin: 1rem 0;
+    font-size: 20px;
+
+  }
+  
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid #ddd; /* Table border color */
+    text-align: left; /* Left-align content within table cells */
+  }
+  
+  th {
+    background-color: #f0f0f0; /* Light background for table headers */
+    font-weight: bold;
+  }
+  
+  /* Additional styles for specific elements */
+  .fixed,
+  .request {
+    margin-top: 3rem;
+  }
+  
+  .fixed h4,
+  .request h4 {
+    margin-bottom: 0.5rem;
+  }
+  
