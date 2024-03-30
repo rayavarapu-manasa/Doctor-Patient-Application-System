@@ -1,5 +1,5 @@
 .registration-form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     border: 3px solid #652222;
@@ -21,7 +21,7 @@
   }
   
   .form-group input {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;

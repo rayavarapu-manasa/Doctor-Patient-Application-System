@@ -28,6 +28,24 @@ const Patientregistration = () => {
     setIsFormFilled(filled);
   }, [formData]);
 
+  const handleRegistration = () => {
+    if (isFormFilled) {
+      // Store username and password in localStorage
+      localStorage.setItem('username', formData.username);
+      localStorage.setItem('password', formData.password);
+      
+      localStorage.setItem('registeredPatient', JSON.stringify(formData));
+      // Clear the form data
+      setFormData({
+        firstname: '',
+        lastname: '',
+        dateofbirth: '',
+        phonenumber: '',
+        address: ''
+      
+      });
+    }
+  };
   return (
     <div className="registration-form">
       <h2>LifeCare Patient Registration</h2>
@@ -62,7 +80,7 @@ const Patientregistration = () => {
         </div>
         
         {isFormFilled ? (
-          <Link to="/Patientlogin" className="register-button" >Register</Link>
+          <Link to="/Patientlogin" className="register-button" onClick={handleRegistration} >Register</Link>
         ) : (
           <button className='register-button' disabled>Register</button>
         )}

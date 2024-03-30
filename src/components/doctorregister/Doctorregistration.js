@@ -9,6 +9,8 @@ const Doctorregistration = () => {
     dateofbirth: '',
     phonenumber: '',
     address: '',
+    doctorid: '', // Add doctorid in formData state
+    speciality: '',
     username: '',
     password: ''
   });
@@ -27,6 +29,29 @@ const Doctorregistration = () => {
     const filled = Object.values(formData).every(value => value.trim() !== '');
     setIsFormFilled(filled);
   }, [formData]);
+
+  const handleRegistration = () => {
+    if (isFormFilled) {
+      // Store username and password in localStorage
+      localStorage.setItem('username', formData.username);
+      localStorage.setItem('password', formData.password);
+    
+   
+      localStorage.setItem('registeredDoctor', JSON.stringify(formData));
+      // Clear the form data
+      setFormData({
+        firstname: '',
+        lastname: '',
+        dateofbirth: '',
+        phonenumber: '',
+        address: '',
+        doctorid: '',
+        speciality: '',
+        username: '',
+        password: ''
+      });
+    }
+  };
   
   return (
     <div className="registration-form">
@@ -70,7 +95,7 @@ const Doctorregistration = () => {
         </div>
         
         {isFormFilled ? (
-          <Link to="/doctorlogin" className='reg-btn' >Register</Link>
+          <Link to="/doctorlogin" className='reg-btn' onClick={handleRegistration} >Register</Link>
         ) : (
           <button className='reg-btn' disabled>Register</button>
         )}
