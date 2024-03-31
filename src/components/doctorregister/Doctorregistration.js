@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Doctorregistration.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Doctorregistration = () => {
   const [formData, setFormData] = useState({
@@ -30,15 +31,16 @@ const Doctorregistration = () => {
     setIsFormFilled(filled);
   }, [formData]);
 
-  const handleRegistration = () => {
-    if (isFormFilled) {
-      // Store username and password in localStorage
+  const handleRegistration = async(e) => {
+    e.preventDefault();
+    try {
       localStorage.setItem('username', formData.username);
       localStorage.setItem('password', formData.password);
-    
-   
       localStorage.setItem('registeredDoctor', JSON.stringify(formData));
-      // Clear the form data
+   
+      const response=await axios.post('https://doctor-patient-c30db-default-rtdb.firebaseio.com/patientlogin.json',formData);
+      console.log('Data submitted successfully:', response.data);
+      alert("Registered Successfully");
       setFormData({
         firstname: '',
         lastname: '',
@@ -51,6 +53,11 @@ const Doctorregistration = () => {
         password: ''
       });
     }
+      catch (error) {
+        console.error('Error submitting data:', error);
+        alert("Error occurred while submitting data. Please try again later.");
+    }
+    window.location.href="/doctorlogin"
   };
   
   return (

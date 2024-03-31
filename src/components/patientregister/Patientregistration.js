@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Patientregistration.css';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Patientregistration = () => {
   const [formData, setFormData] = useState({
@@ -23,33 +23,40 @@ const Patientregistration = () => {
   };
 
   // Check if all form fields are filled
-  React.useEffect(() => {
+  useEffect(() => {
     const filled = Object.values(formData).every(value => value.trim() !== '');
     setIsFormFilled(filled);
   }, [formData]);
 
-  const handleRegistration = () => {
-    if (isFormFilled) {
-      // Store username and password in localStorage
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
       localStorage.setItem('username', formData.username);
-      localStorage.setItem('password', formData.password);
-      
-      localStorage.setItem('registeredPatient', JSON.stringify(formData));
-      // Clear the form data
+    localStorage.setItem('password', formData.password);
+    localStorage.setItem('registeredPatient', JSON.stringify(formData));
+      const response = await axios.post('https://doctor-patient-c30db-default-rtdb.firebaseio.com/register.json', formData);
+      console.log('Data submitted successfully:', response.data);
+      alert("Registered Successfully");
       setFormData({
         firstname: '',
         lastname: '',
         dateofbirth: '',
         phonenumber: '',
-        address: ''
-      
+        address: '',
+        username: '',
+        password: ''
       });
+    } catch (error) {
+      console.error('Error submitting data:', error);
+      alert("Error occurred while submitting data. Please try again later.");
     }
+    window.location.href="/patientlogin"
   };
+
   return (
     <div className="registration-form">
       <h2>LifeCare Patient Registration</h2>
-      <form>
+      <form autoComplete='off' onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="Firstname">Firstname:</label>
           <input type="text" id="Firstname1" name="firstname" value={formData.firstname} onChange={handleChange} />
@@ -72,26 +79,17 @@ const Patientregistration = () => {
         </div>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <input type="text" id="username1" name="username" value={formData.username} onChange={handleChange} />
+          <input type="text" id="username1" name="username" value={formData.username} onChange={handleChange} autoComplete="username" />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password for login:</label>
-          <input type="password" id="password1" name="password" value={formData.password} onChange={handleChange} />
+          <input type="password" id="password1" name="password" value={formData.password} onChange={handleChange} autoComplete="current-password" />
         </div>
         
-        {isFormFilled ? (
-          <Link to="/Patientlogin" className="register-button" onClick={handleRegistration} >Register</Link>
-        ) : (
-          <button className='register-button' disabled>Register</button>
-        )}
+        <button type="submit" className="register-button" disabled={!isFormFilled}>Register</button>
       </form>
     </div>
   );
 };
 
 export default Patientregistration;
-
-
-
-
-
