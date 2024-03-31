@@ -38,7 +38,7 @@ const Patientlogin = () => {
       console.error('Error submitting data:', error);
       alert("Error occurred while submitting data. Please try again later.");
     }
-    window.location.href = "/patientlogin/submit"
+    window.location.href = "/patientlogin/submit";
   };
 
 
