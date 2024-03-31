@@ -54,10 +54,10 @@ const Doctorregistration = () => {
       });
     }
       catch (error) {
-        console.error('Error submitting data:', error);
+        console.error('error submitting data:', error);
         alert("Error occurred while submitting data. Please try again later.");
     }
-    window.location.href="/doctorlogin"
+    window.location.href="/doctorlogin";
   };
   
   return (

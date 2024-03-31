@@ -40,7 +40,7 @@ const Doctorlogin = () => {
       console.error('Error submitting data:', error);
       alert("Error occurred while submitting data. Please try again later.");
     }
-    window.location.href = "/doctorlogin/login";
+    window.location.href = "/doctorlogin/login"
   };
 
   return (

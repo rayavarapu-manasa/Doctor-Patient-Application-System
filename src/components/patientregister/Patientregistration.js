@@ -50,7 +50,7 @@ const Patientregistration = () => {
       console.error('Error submitting data:', error);
       alert("Error occurred while submitting data. Please try again later.");
     }
-    window.location.href="/patientlogin"
+    window.location.href="/patientlogin";
   };
 
   return (
